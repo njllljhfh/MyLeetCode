@@ -1,0 +1,67 @@
+# -*- coding:utf-8 -*-
+"""
+给定两个大小分别为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。请你找出并返回这两个正序数组的 中位数 。
+
+示例 1：
+输入：nums1 = [1,3], nums2 = [2]
+输出：2.00000
+解释：合并数组 = [1,2,3] ，中位数 2
+
+示例 2：
+输入：nums1 = [1,2], nums2 = [3,4]
+输出：2.50000
+解释：合并数组 = [1,2,3,4] ，中位数 (2 + 3) / 2 = 2.5
+
+示例 3：
+输入：nums1 = [0,0], nums2 = [0,0]
+输出：0.00000
+
+示例 4：
+输入：nums1 = [], nums2 = [1]
+输出：1.00000
+
+示例 5：
+输入：nums1 = [2], nums2 = []
+输出：2.00000
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/median-of-two-sorted-arrays
+"""
+from typing import List
+
+
+class Solution:
+    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+        """时间复杂度：O(m + n)"""
+        len1 = len(nums1)
+        len2 = len(nums2)
+        total_len = len1 + len2
+        left = -1
+        right = -1
+        index1 = 0
+        index2 = 0
+        # 总长度为奇数时：循环次数为的总长度的一半向上取整
+        # 总长度为偶数时：循环次数为的总长度的一半加1
+        for _ in range(total_len // 2 + 1):
+            left = right
+            if index1 < len1 and (index2 >= len2 or nums1[index1] < nums2[index2]):
+                right = nums1[index1]
+                index1 += 1
+            else:
+                right = nums2[index2]
+                index2 += 1
+        if (total_len & 1) == 0:
+            # 总长度为偶数
+            return (left + right) / 2.0
+        else:
+            # 总长度为奇数
+            return right
+
+
+if __name__ == '__main__':
+    # num_ls1 = [1, 2]
+    # num_ls2 = [3, 4]
+    num_ls1 = []
+    num_ls2 = [4]
+
+    print(Solution().findMedianSortedArrays(num_ls1, num_ls2))
