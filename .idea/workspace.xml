@@ -14,6 +14,17 @@
       </list>
     </option>
   </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -98,7 +109,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.4-寻找两个正序数组的中位数">
+  <component name="RunManager" selected="Python.xxx1">
     <configuration name="两数相加" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="MyLeetCode" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -167,9 +178,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.xxx1" />
         <item itemvalue="Python.4-寻找两个正序数组的中位数" />
         <item itemvalue="Python.两数相加" />
-        <item itemvalue="Python.xxx1" />
       </list>
     </recent_temporary>
   </component>
@@ -195,7 +206,7 @@
       <workItem from="1600776581693" duration="598000" />
       <workItem from="1601049719113" duration="96000" />
       <workItem from="1635413531558" duration="2055000" />
-      <workItem from="1635862179859" duration="10761000" />
+      <workItem from="1635862179859" duration="11669000" />
     </task>
     <servers />
   </component>
@@ -234,9 +245,9 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/MyLeetCode$.coverage" NAME="两数相加 Coverage Results" MODIFIED="1636029592601" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/one" />
-    <SUITE FILE_PATH="coverage/MyLeetCode$4_.coverage" NAME="4-寻找两个正序数组的中位数 Coverage Results" MODIFIED="1636078121319" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/one" />
+    <SUITE FILE_PATH="coverage/MyLeetCode$4_.coverage" NAME="4-寻找两个正序数组的中位数 Coverage Results" MODIFIED="1636078428833" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/one" />
     <SUITE FILE_PATH="coverage/MyLeetCode$settings.coverage" NAME="settings Coverage Results" MODIFIED="1598274319225" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/log_config" />
-    <SUITE FILE_PATH="coverage/MyLeetCode$xxx1.coverage" NAME="xxx1 Coverage Results" MODIFIED="1635414585628" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/one" />
+    <SUITE FILE_PATH="coverage/MyLeetCode$xxx1.coverage" NAME="xxx1 Coverage Results" MODIFIED="1636078673459" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/one" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/.gitignore">
