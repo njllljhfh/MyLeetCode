@@ -3,6 +3,8 @@
 4. 寻找两个正序数组的中位数
 给定两个大小分别为 m 和 n 的正序（从小到大）数组 nums1 和 nums2。请你找出并返回这两个正序数组的 中位数 。
 
+难度：困难
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 示例 1：
 输入：nums1 = [1,3], nums2 = [2]
@@ -52,8 +54,8 @@ class Solution:
         len1 = len(nums1)
         len2 = len(nums2)
         total_len = len1 + len2
-        left = -1
-        right = -1
+        left = -1  # 两个连续数中较小的数
+        right = -1  # 两个连续数中较大的数
         index1 = 0
         index2 = 0
         # 总长度为奇数时：循环次数为的总长度的一半向上取整
@@ -61,12 +63,14 @@ class Solution:
         for _ in range(total_len // 2 + 1):
             left = right
             if index1 < len1 and (index2 >= len2 or nums1[index1] < nums2[index2]):
+                # 先用index1取值, 用完再将其加1
                 right = nums1[index1]
                 index1 += 1
             else:
+                # 先用index2取值, 用完再将其加1
                 right = nums2[index2]
                 index2 += 1
-        if (total_len & 1) == 0:
+        if (total_len & 1) == 0:  # 按位与
             # 总长度为偶数
             return (left + right) / 2.0
         else:
@@ -75,9 +79,9 @@ class Solution:
 
 
 if __name__ == '__main__':
-    # num_ls1 = [1, 2]
-    # num_ls2 = [3, 4]
-    num_ls1 = []
-    num_ls2 = [4]
+    num_ls1 = [1, 2]
+    num_ls2 = [3, 4]
+    # num_ls1 = []
+    # num_ls2 = [4]
 
     print(Solution().findMedianSortedArrays(num_ls1, num_ls2))
