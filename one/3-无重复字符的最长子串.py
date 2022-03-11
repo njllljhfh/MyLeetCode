@@ -20,7 +20,7 @@
 输入: s = "pwwkew"
 输出: 3
 解释: 因为无重复字符的最长子串是 "wke"，所以其长度为 3。
-    请注意，你的答案必须是 子串 的长度，"pwke" 是一个子序列，不是子串。
+    请注意，你的答案必须是 子串 的长度，"wke" 是一个子序列，不是子串。
 
 示例 4:
 输入: s = ""
@@ -87,7 +87,7 @@ class Solution:
         for i in range(n):
             cur_len += 1
 
-            while s[i] in lookup:
+            while s[i] in lookup:  # 对 set类型 进行 in 操作的时间复杂度是 O(1)
                 lookup.remove(s[left])
                 left += 1
                 cur_len -= 1

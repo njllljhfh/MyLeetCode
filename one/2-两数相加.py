@@ -40,20 +40,21 @@ class ListNode(object):
         self.next = None
 
     def __repr__(self):
-        return self.show_str()
+        return self._show_str()
 
-    def show_str(self):
+    def _show_str(self):
         """把这个节点当做个位显示完整的数值"""
         if self.next is None:
             return f'{self.val}'
         else:
-            return f'{self.next.show_str()}{self.val}'
+            # 会执行 __repr__ 方法
+            return f'{self.next}{self.val}'
 
 
 class Solution:
     def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
         p = ListNode(0)
-        q = p  # p的尾结点在最终返回时被去掉了。
+        q = p  # p的第一个节点0在最终返回时被去掉了。
         tmp = 0
 
         while l1 or l2 or tmp:

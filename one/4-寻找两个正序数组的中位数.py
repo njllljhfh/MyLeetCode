@@ -57,8 +57,8 @@ class Solution:
         right = -1  # 两个连续数中较大的数
         index1 = 0
         index2 = 0
-        # 总长度为奇数时：循环次数为的总长度的一半向上取整
-        # 总长度为偶数时：循环次数为的总长度的一半加1
+        # 总长度为奇数时：循环次数为总长度的一半向上取整
+        # 总长度为偶数时：循环次数为总长度的一半加1
         for _ in range(total_len // 2 + 1):
             left = right
             if index1 < len1 and (index2 >= len2 or nums1[index1] < nums2[index2]):
