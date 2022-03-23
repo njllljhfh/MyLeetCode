@@ -48,7 +48,8 @@ from typing import List
 
 
 class Solution:
-    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
+    @classmethod
+    def findMedianSortedArrays(cls, nums1: List[int], nums2: List[int]) -> float:
         """时间复杂度：O(m + n)"""
         len1 = len(nums1)
         len2 = len(nums2)

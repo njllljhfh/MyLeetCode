@@ -35,9 +35,9 @@
 
 # Definition for singly-linked list.
 class ListNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+    def __init__(self, val, nextNode=None):
+        self.val = val
+        self.next = nextNode
 
     def __repr__(self):
         return self._show_str()
@@ -47,14 +47,15 @@ class ListNode(object):
         if self.next is None:
             return f'{self.val}'
         else:
-            # 会执行 __repr__ 方法
+            # f'{self.next}' 会执行 next 节点的 __repr__ 方法
             return f'{self.next}{self.val}'
 
 
 class Solution:
-    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+    @classmethod
+    def addTwoNumbers(cls, l1: ListNode, l2: ListNode) -> ListNode:
         p = ListNode(0)
-        q = p  # p的第一个节点0在最终返回时被去掉了。
+        q = p  # p的第一个节点0在最终返回时被去掉了。q 是指向 p中第一个节点的指针。
         tmp = 0
 
         while l1 or l2 or tmp:
@@ -67,7 +68,7 @@ class Solution:
 
             p.next = ListNode(tmp % 10)
 
-            p = p.next
+            p = p.next  # p在循环中不断地重新指向结果数字的更高位节点
             tmp = tmp // 10
 
         return q.next

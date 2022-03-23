@@ -37,6 +37,7 @@ s 由英文字母、数字、符号和空格组成
 """
 
 
+# ============================================= 我的解法 ============================================="""
 # class Solution:
 #     def lengthOfLongestSubstring(self, s: str) -> int:
 #         """dragon自己实现的，此算法时间复杂度较高"""
@@ -54,10 +55,12 @@ s 由英文字母、数字、符号和空格组成
 #             max_len = new_len if new_len > max_len else max_len
 #
 #         return max_len
+# ===================================================================================================
 
 
 class Solution:
-    def lengthOfLongestSubstring(self, s: str) -> int:
+    @classmethod
+    def lengthOfLongestSubstring(cls, s: str) -> int:
         """
         思路：
             这道题主要用到思路是：【滑动窗口】

@@ -36,8 +36,25 @@
 """
 
 
+# ============================================= 我的解法 ============================================="""
+class Solution3(object):
+    @classmethod
+    def twoSum(cls, nums: [int, ...], target: int):
+        """时间复杂度：O(n)"""
+        valueToIndex = {}
+        for i, v in enumerate(nums):
+            x = target - v
+            if x in valueToIndex:
+                return [valueToIndex[x], i]
+            valueToIndex[v] = i
+
+
+# ===================================================================================================
+
+
 class Solution(object):
-    def twoSum(self, nums: [int, ...], target: int) -> [int, int]:
+    @classmethod
+    def twoSum(cls, nums: [int, ...], target: int) -> [int, int]:
         """时间复杂度：O(n)"""
         # 生成 value 到 index 的映射
         hash_map = {}
@@ -52,7 +69,8 @@ class Solution(object):
 
 
 class Solution2(object):
-    def twoSum(self, nums, target):
+    @classmethod
+    def twoSum(cls, nums, target):
         """时间复杂度：O(n)"""
         hashmap = {}
         for i, num in enumerate(nums):
@@ -64,10 +82,11 @@ class Solution2(object):
 
 if __name__ == '__main__':
     # s = Solution()
-    s = Solution2()
-    nums = [2, 7, 11, 15]
-    target = 9
-    # nums = [3, 1, 2, 3]
-    # target = 6
+    # s = Solution2()
+    s = Solution3()
+    # nums = [2, 7, 11, 15]
+    # target = 9
+    nums = [3, 1, 2, 3]
+    target = 6
     result = s.twoSum(nums, target)
     print(result)
