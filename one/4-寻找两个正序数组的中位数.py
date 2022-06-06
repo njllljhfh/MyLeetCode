@@ -43,6 +43,9 @@ nums2.length == n
 
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/median-of-two-sorted-arrays
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+中位数定义：https://baike.baidu.com/item/%E4%B8%AD%E4%BD%8D%E6%95%B0/3087401
 """
 from typing import List
 
@@ -54,10 +57,14 @@ class Solution:
         len1 = len(nums1)
         len2 = len(nums2)
         total_len = len1 + len2
-        left = -1  # 两个连续数中较小的数
-        right = -1  # 两个连续数中较大的数
+        if total_len == 0:
+            return -1.0
+
+        left = -1  # 两个连续数中的上一个数
+        right = -1  # 两个连续数中的下一个数
         index1 = 0
         index2 = 0
+
         # 总长度为奇数时：循环次数为总长度的一半向上取整
         # 总长度为偶数时：循环次数为总长度的一半加1
         for _ in range(total_len // 2 + 1):
@@ -79,9 +86,14 @@ class Solution:
 
 
 if __name__ == '__main__':
-    num_ls1 = [1, 2]
-    num_ls2 = [3, 4]
-    # num_ls1 = []
-    # num_ls2 = [4]
+    # num_ls1 = [1, 2]
+    # num_ls2 = [3, 4]
 
-    print(Solution().findMedianSortedArrays(num_ls1, num_ls2))
+    num_ls1 = [1, 2]
+    num_ls2 = [3, 4, 4]
+
+    # num_ls1 = []
+    # num_ls2 = []
+
+    res = Solution().findMedianSortedArrays(num_ls1, num_ls2)
+    print(res)

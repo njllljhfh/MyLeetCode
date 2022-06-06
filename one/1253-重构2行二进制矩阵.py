@@ -12,7 +12,6 @@
 如果不存在符合要求的答案，就请返回一个空的二维数组。
 
 难度：中等
-
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 示例 1：
@@ -38,3 +37,57 @@
 来源：力扣（LeetCode）
 链接：https://leetcode-cn.com/problems/reconstruct-a-2-row-binary-matrix
 """
+from typing import List
+
+
+class Solution:
+    def reconstructMatrix(self, upper: int, lower: int, colsum: List[int]) -> List[List[int]]:
+        """贪心思想，O(n)"""
+        if upper + lower != sum(colsum):
+            return []
+
+        n = len(colsum)
+        upper_ls = [-1] * n
+        lower_ls = [-1] * n
+
+        for i in range(n):
+            current_column_sum = colsum[i]
+            if current_column_sum == 2:
+                upper_ls[i] = 1
+                lower_ls[i] = 1
+                upper -= 1
+                lower -= 1
+            elif current_column_sum == 0:
+                upper_ls[i] = 0
+                lower_ls[i] = 0
+            else:
+                if upper >= lower:
+                    upper_ls[i] = 1
+                    lower_ls[i] = 0
+                    upper -= 1
+                else:
+                    upper_ls[i] = 0
+                    lower_ls[i] = 1
+                    lower -= 1
+
+            if upper < 0 or lower < 0:
+                return []
+
+        return [upper_ls, lower_ls]
+
+
+if __name__ == '__main__':
+    # upper = 2
+    # lower = 1
+    # colsum = [1, 1, 1]
+
+    # upper = 2
+    # lower = 3
+    # colsum = [2, 2, 1, 1]
+
+    upper = 5
+    lower = 5
+    colsum = [2, 1, 2, 0, 1, 0, 1, 2, 0, 1]
+
+    res = Solution().reconstructMatrix(upper, lower, colsum)
+    print(res)
