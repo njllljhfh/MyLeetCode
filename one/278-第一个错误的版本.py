@@ -73,7 +73,7 @@ class Solution2:
         https://leetcode-cn.com/problems/first-bad-version/solution/di-yi-ge-cuo-wu-de-ban-ben-by-leetcode-s-pf8h/
 
         复杂度分析
-        时间复杂度：O(log n)，其中 nn 是给定版本的数量。
+        时间复杂度：O(log n)，其中 n 是给定版本的数量。
         空间复杂度：O(1)，我们只需要常数的空间保存若干变量。
         """
         left = 1
@@ -97,10 +97,10 @@ if __name__ == '__main__':
     # bad = 4
     # n = 1
     # bad = 1
-    # n = 5
-    # bad = 1
-    n = 2
-    bad = 2
+    n = 5
+    bad = 1
+    # n = 2
+    # bad = 2
 
     solution = Solution2()
     res = solution.firstBadVersion(n)
