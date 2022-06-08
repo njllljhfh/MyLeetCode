@@ -36,6 +36,10 @@ nums 是一个非递减数组
 """
 from typing import List
 
+"""
+二分查找
+"""
+
 
 class Solution:
     """

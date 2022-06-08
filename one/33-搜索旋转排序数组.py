@@ -37,6 +37,10 @@ nums 中的每个值都 独一无二
 """
 from typing import List
 
+"""
+二分查找
+"""
+
 
 class Solution:
     def search(self, nums: List[int], target: int) -> int:

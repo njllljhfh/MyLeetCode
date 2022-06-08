@@ -27,6 +27,10 @@ n == matrix[i].length
 from typing import List
 import time
 
+"""
+二分查找
+"""
+
 
 class Solution:
     """我的解法"""
