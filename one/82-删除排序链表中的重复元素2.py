@@ -3,6 +3,7 @@
 82. 删除排序链表中的重复元素 II
 给定一个 已排序的 链表的头 head ， 删除原始链表中所有重复数字的节点，只留下不同的数字。返回 已排序的链表 。
 
+难度：中等
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 示例 1
@@ -37,7 +38,7 @@ class Solution:
         :return:
         """
         dummyNode = ListNode(val=0, next=head)  # dummyNode 傀儡节点
-        cur = dummyNode  # cur 指向到目前为止，要保留的节点
+        cur = dummyNode  # cur 指向到目前为止，要保留的最后的节点
         while cur.next and cur.next.next:
             if cur.next.val == cur.next.next.val:
                 x = cur.next.val
