@@ -32,7 +32,7 @@ def merge(left: list, right: list):
         else:
             result.append(right.pop(0))
 
-    # 将剩下的直接按顺序放在已排序的列表的尾部
+    # 将剩下元素的直接按顺序放在已排序的列表的尾部
     while left:
         result.append(left.pop(0))
     while right:
