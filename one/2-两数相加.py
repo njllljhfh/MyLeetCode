@@ -54,7 +54,7 @@ class ListNode(object):
 class Solution:
     @classmethod
     def addTwoNumbers(cls, l1: ListNode, l2: ListNode) -> ListNode:
-        p = ListNode(0)
+        p = ListNode(0)  # 哨兵节点
         q = p  # p的第一个节点0在最终返回时被去掉了。q 是指向 p中第一个节点的指针。
         tmp = 0
 
@@ -109,17 +109,29 @@ class Solution:
 
 
 if __name__ == '__main__':
-    ls1 = ListNode(2)
-    ls1.next = ListNode(4)
-    ls1.next.next = ListNode(3)
+    # 测试数据1
+    # ls1 = ListNode(2)
+    # ls1.next = ListNode(4)
+    # ls1.next.next = ListNode(3)
+    # ls2 = ListNode(5)
+    # ls2.next = ListNode(6)
+    # ls2.next.next = ListNode(4)
+    # ------------
+    # 测试数据2
+    # ls1 = ListNode(0)
+    # ls2 = ListNode(0)
+    # ------------
+    # 测试数据3
+    ls1 = ListNode(9)
+    ls1.next = ListNode(9)
+    ls1.next.next = ListNode(9)
+    ls1.next.next.next = ListNode(9)
+    ls2 = ListNode(8)
+    ls2.next = ListNode(8)
+    ls2.next.next = ListNode(8)
+    # ------------
     print(f'ls1={ls1}')
-
-    ls2 = ListNode(5)
-    ls2.next = ListNode(6)
-    ls2.next.next = ListNode(4)
     print(f'ls2={ls2}')
 
     ls_res = Solution().addTwoNumbers(ls1, ls2)
     print(f'ls_res={ls_res}')
-    print(f'ls1={ls1}')
-    print(f'ls2={ls2}')

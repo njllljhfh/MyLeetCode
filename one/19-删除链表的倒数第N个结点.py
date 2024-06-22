@@ -54,15 +54,20 @@ class Solution:
     """
 
     def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+        # 使用快慢指针
         dummy = ListNode(0, head)
-        first = head
-        second = dummy  # 指向要删除的节点的上一个节点
+        first = head  # 快指针
+        second = dummy  # 慢指针
+
+        # 先移动快指针
         for i in range(n):
             first = first.next
 
+        # 同时移动快指针和慢指针
         while first:
             first = first.next
             second = second.next
+        # while结束时：second 指向要删除的节点的上一个节点
 
         second.next = second.next.next
         return dummy.next

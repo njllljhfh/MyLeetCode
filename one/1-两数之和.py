@@ -84,9 +84,9 @@ if __name__ == '__main__':
     # s = Solution()
     # s = Solution2()
     s = Solution3()
-    # nums = [2, 7, 11, 15]
-    # target = 9
-    nums = [3, 1, 2, 3]
-    target = 6
+    nums = [2, 7, 11, 15]
+    target = 9
+    # nums = [3, 1, 2, 3]
+    # target = 6
     result = s.twoSum(nums, target)
     print(result)

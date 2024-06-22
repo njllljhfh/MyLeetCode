@@ -48,6 +48,11 @@ def newList(ls: list):
 class Solution:
     def sortList(self, head: ListNode) -> ListNode:
         def sortFunc(head: ListNode, tail: ListNode) -> ListNode:
+            """
+            :param head:
+            :param tail: 第一次调用函数时，tail=None
+            :return:
+            """
             if not head:
                 return head
             if head.next == tail:

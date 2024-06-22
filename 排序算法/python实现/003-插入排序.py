@@ -12,7 +12,7 @@ def insertionSort(arr, reverse=False):
     """
     for i in range(1, len(arr)):
         preIndex = i - 1
-        current = arr[i]
+        current = arr[i]  # 记录当前数据
 
         if reverse:
             # 向右移动已排序的数据，知道找到当前要插入的正确位置
@@ -20,6 +20,7 @@ def insertionSort(arr, reverse=False):
                 arr[preIndex + 1] = arr[preIndex]
                 preIndex -= 1
         else:
+            # 将比将当前数据大的数，向右移一位
             while preIndex >= 0 and arr[preIndex] > current:
                 arr[preIndex + 1] = arr[preIndex]
                 preIndex -= 1
