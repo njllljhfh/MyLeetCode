@@ -10,7 +10,7 @@ def bubbleSort(arr, reverse=False):
     :param reverse: 是否倒序
     :return:
     """
-    for i in range(1, len(arr)):  # 一共便利 length-1 趟
+    for i in range(1, len(arr)):  # 一共遍历 length-1 趟
         for j in range(len(arr) - i):
             if reverse:
                 if arr[j] < arr[j + 1]:

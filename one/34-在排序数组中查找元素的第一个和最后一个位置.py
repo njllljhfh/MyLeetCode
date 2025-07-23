@@ -63,18 +63,21 @@ class Solution:
 
         return [firstPosition, lastPosition]
 
-    def _findFistPosition(self, nums, target):
+    @staticmethod
+    def _findFistPosition(nums, target):
         """寻找第一次出现的位置"""
         left = 0
         right = len(nums) - 1
 
         while left < right:
             # mid = int((left + right) / 2)
+            # 向下取整，让 mid 向中左靠拢
             mid = (left + right) >> 1
             if nums[mid] < target:
                 # 目标值在[mid+1, right]
                 left = mid + 1
             elif nums[mid] == target:
+                # 说明中间元素的右边一定不是目标值第 1 次出现的位置
                 # 目标值在[left, mid]
                 right = mid
             else:
@@ -87,18 +90,21 @@ class Solution:
         else:
             return left
 
-    def _findLastPosition(self, nums, target):
+    @staticmethod
+    def _findLastPosition(nums, target):
         """寻找最后一次出现的位置"""
         left = 0
         right = len(nums) - 1
 
         while left < right:
             # mid = int((left + right + 1) / 2)
+            # 向上取整，让 mid 向中右拢靠
             mid = (left + right + 1) >> 1  # 这里必须向上取整，否则可能在 nums[mid] == target 时进入死循环.
             if nums[mid] < target:
                 # 目标值在[mid+1, right]
                 left = mid + 1
             elif nums[mid] == target:
+                # 说明中间元素的左边一定不是目标值 最后一次 出现的位置
                 # 目标值在[mid, right]
                 left = mid
             else:
@@ -109,8 +115,8 @@ class Solution:
 
 
 if __name__ == '__main__':
-    nums = [5, 7, 7, 8, 8, 10]
-    target = 8
+    nums_ = [5, 7, 7, 8, 8, 10]
+    target_ = 8
     solution = Solution()
-    result = solution.searchRange(nums, target)
+    result = solution.searchRange(nums_, target_)
     print(result)

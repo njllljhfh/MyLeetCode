@@ -44,7 +44,10 @@ from typing import List
 
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
-        """我的解法"""
+        """
+        时间复杂度：O(log(n))
+        我的解法
+        """
         length = len(nums)
         left = 0
         right = length - 1

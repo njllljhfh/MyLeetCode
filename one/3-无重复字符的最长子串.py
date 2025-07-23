@@ -90,6 +90,7 @@ class Solution:
         for i in range(n):
             cur_len += 1
 
+            # 循环的目的是把与s[i]重复的字符以及它左边全部字符从 滑动窗口 lookup 中移除
             while s[i] in lookup:  # 对 set类型 进行 in 操作的时间复杂度是 O(1)
                 lookup.remove(s[left])
                 left += 1

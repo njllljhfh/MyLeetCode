@@ -35,7 +35,7 @@ class Log(object):
             cls.log_directory = os.path.join(project_dir, LOG_FOLDER_NAME)
 
         # 判断日志文件夹是否在项目文件中
-        print(f"log_path = {cls.log_directory}")
+        # print(f"log_path = {cls.log_directory}")
         if not os.path.exists(cls.log_directory):
             os.mkdir(cls.log_directory)
 
