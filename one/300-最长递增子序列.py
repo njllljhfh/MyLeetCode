@@ -27,25 +27,25 @@ https://leetcode.cn/problems/longest-increasing-subsequence/
 from typing import List
 
 
-# class Solution:
-#     """动态规划"""
-#     def lengthOfLIS(self, nums: List[int]) -> int:
-#         length = len(nums)
-#         dp = [0] * length  # 以nums中每个元素为结尾的 最大递增子序 的长度。dp的index 与 nums的index 对应
-#
-#         if dp:
-#             dp[0] = 1
-#             maxLength = 1
-#         else:
-#             maxLength = 0
-#
-#         for i in range(1, length):
-#             dp[i] = 1
-#             for j in range(i):
-#                 if nums[j] < nums[i]:
-#                     dp[i] = max(dp[i], dp[j] + 1)
-#                     maxLength = max(dp[i], maxLength)
-#         return maxLength
+class Solution:
+    """动态规划"""
+    def lengthOfLIS(self, nums: List[int]) -> int:
+        length = len(nums)
+        dp = [0] * length  # 以nums中每个元素为结尾的 最大递增子序 的长度。dp的index 与 nums的index 对应
+
+        if dp:
+            dp[0] = 1
+            maxLength = 1
+        else:
+            maxLength = 0
+
+        for i in range(1, length):
+            dp[i] = 1
+            for j in range(i):
+                if nums[j] < nums[i]:
+                    dp[i] = max(dp[i], dp[j] + 1)
+                    maxLength = max(dp[i], maxLength)
+        return maxLength
 
 # class Solution:
 #     def lengthOfLIS(self, nums: [int]) -> int:
@@ -63,28 +63,28 @@ from typing import List
 #                 res += 1
 #         return res
 
-class Solution:
-    """
-    贪心 + 二分查找
-    """
-
-    def lengthOfLIS(self, nums: List[int]) -> int:
-        d = []
-        for n in nums:
-            if not d or n > d[-1]:
-                d.append(n)
-            else:
-                l, r = 0, len(d) - 1
-                loc = r
-                while l <= r:
-                    mid = (l + r) // 2
-                    if d[mid] >= n:
-                        loc = mid
-                        r = mid - 1
-                    else:
-                        l = mid + 1
-                d[loc] = n
-        return len(d)
+# class Solution:
+#     """
+#     贪心 + 二分查找
+#     """
+#
+#     def lengthOfLIS(self, nums: List[int]) -> int:
+#         d = []
+#         for n in nums:
+#             if not d or n > d[-1]:
+#                 d.append(n)
+#             else:
+#                 l, r = 0, len(d) - 1
+#                 loc = r
+#                 while l <= r:
+#                     mid = (l + r) // 2
+#                     if d[mid] >= n:
+#                         loc = mid
+#                         r = mid - 1
+#                     else:
+#                         l = mid + 1
+#                 d[loc] = n
+#         return len(d)
 
 
 if __name__ == '__main__':
