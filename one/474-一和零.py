@@ -1,7 +1,7 @@
 # -*- coding:utf-8 -*-
 """
 474. 一和零
-
+https://leetcode.cn/problems/ones-and-zeroes/description/
 中等
 
 给你一个二进制字符串数组 strs 和两个整数 m 和 n 。
@@ -31,39 +31,71 @@ strs[i] 仅由 '0' 和 '1' 组成
 from typing import List
 
 
+# class Solution:
+#     def findMaxForm(self, strs: List[str], m: int, n: int) -> int:
+#         length = len(strs)
+#         # 3维dp
+#         dp = [[[0] * (n + 1) for _ in range(m + 1)] for _ in range(length + 1)]
+#         for i in range(1, length + 1):
+#             c0 = strs[i - 1].count("0")  # 当前字符串中 0 的个数
+#             c1 = len(strs[i - 1]) - c0  # 当前字符串中 1 的个数
+#             for j in range(m + 1):
+#                 for k in range(n + 1):
+#                     if j >= c0 and k >= c1:
+#                         dp[i][j][k] = max(
+#                             dp[i - 1][j - c0][k - c1] + 1,  # 子集中放入当前 str
+#                             dp[i - 1][j][k]  # 子集中不放入当前 str
+#                         )
+#                     else:
+#                         dp[i][j][k] = dp[i - 1][j][k]
+#
+#         return dp[length][m][n]
+
 class Solution:
     def findMaxForm(self, strs: List[str], m: int, n: int) -> int:
         length = len(strs)
-        # 3维dp
-        dp = [[[0] * (n + 1) for _ in range(m + 1)] for _ in range(length + 1)]
+        # 3维dp: 记录各个状态的子集
+        dp = [[[''] * (n + 1) for _ in range(m + 1)] for _ in range(length + 1)]
         for i in range(1, length + 1):
-            c0 = strs[i - 1].count("0")
-            c1 = len(strs[i - 1]) - c0
+            c0 = strs[i - 1].count("0")  # 当前字符串中 0 的个数
+            c1 = len(strs[i - 1]) - c0  # 当前字符串中 1 的个数
             for j in range(m + 1):
                 for k in range(n + 1):
                     if j >= c0 and k >= c1:
-                        dp[i][j][k] = max(
-                            dp[i - 1][j - c0][k - c1] + 1,
-                            dp[i - 1][j][k]
-                        )
+                        if len(dp[i - 1][j - c0][k - c1]) + 1 > len(dp[i - 1][j][k]):
+                            t = f'{dp[i - 1][j - c0][k - c1]} {i - 1}'.strip()  # 记录子集中字符串的索引
+                            dp[i][j][k] = t
+                        else:
+                            dp[i][j][k] = dp[i - 1][j][k]
                     else:
                         dp[i][j][k] = dp[i - 1][j][k]
 
-        return dp[length][m][n]
+        # 处理没有符合要求的子集的边界情况
+        if dp[length][m][n] != '':
+            index_ls = dp[length][m][n].split(' ')
+        else:
+            index_ls = []
+        final_subset = [strs[int(index)] for index in index_ls]
+        print(f"final_subset = {final_subset}")
+        return len(final_subset)
 
 
 if __name__ == '__main__':
-    # strs = ["10", "0001", "111001", "1", "0"]
-    # m = 5  # m 个 0
-    # n = 3  # n 个 1
+    strs = ["10", "0001", "111001", "1", "0"]
+    m = 5  # m 个 0
+    n = 3  # n 个 1
 
     # strs = ["10", "0", "1"]
     # m = 1
     # n = 1
 
-    strs = ["10", "0001", "111001", "1", "0"]
-    m = 1
-    n = 1
+    # strs = ["10", "0001", "111001", "1", "0"]
+    # m = 1
+    # n = 1
+
+    # strs = ["00", "000"]
+    # m = 1
+    # n = 10
 
     res = Solution().findMaxForm(strs, m, n)
     print(res)
