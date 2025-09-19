@@ -64,9 +64,11 @@ class Solution:
                     if j >= c0 and k >= c1:
                         # if len(dp[i - 1][j - c0][k - c1]) + 1 > len(dp[i - 1][j][k]):
                         if dp[i - 1][j - c0][k - c1].count(' ') + 1 > dp[i - 1][j][k].count(' '):
+                            # 当前字符串 strs[i - 1] 放入当前子集
                             t = f'{dp[i - 1][j - c0][k - c1]} {i - 1}'.strip()  # 记录子集中字符串的索引
                             dp[i][j][k] = t
                         else:
+                            # 当前字符串 strs[i - 1] 不放入当前子集
                             dp[i][j][k] = dp[i - 1][j][k]
                     else:
                         dp[i][j][k] = dp[i - 1][j][k]
